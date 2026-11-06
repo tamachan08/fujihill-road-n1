@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8分遅れた理由</title>
+<meta name="description" content="富士ヒル 1:25 → 1:33。パワーはほぼ同じだった。変わったのは何か。原因を一度まちがえた記録と、そこからの道。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8分遅れた理由を、最初はまちがえた｜富士ヒル 1:25→1:33">
+<meta property="og:description" content="パワーはほぼ同じ。変わったのは体重。CTLを積んで大台ヶ原は1:39:43。次の富士ヒルへの方針。">
+<meta property="og:image" content="https://tamachan08.github.io/fujihill-road-n1/ogp.png">
+<meta property="og:url" content="https://tamachan08.github.io/fujihill-road-n1/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tamachan08.github.io/fujihill-road-n1/ogp.png">
+<style>
+  :root {
+    --paper:#F2EEE5; --card:#FBF9F4; --ink:#1A1A18; --muted:#6E6A60; --faint:#A39E92;
+    --rule:#D8D2C4; --accent:#C8421B; --accent-soft:#F3DCD2; --good:#3F6B4A; --good-soft:#DCE6DA; --blue:#3A6A8E;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme:dark;
+      --paper:#141412; --card:#1C1C19; --ink:#EDE8DC; --muted:#9A958A; --faint:#6A665E;
+      --rule:#34322D; --accent:#F0643A; --accent-soft:#3A2219; --good:#86B58B; --good-soft:#1F2C21; --blue:#78A9D1;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme:dark;
+    --paper:#141412; --card:#1C1C19; --ink:#EDE8DC; --muted:#9A958A; --faint:#6A665E;
+    --rule:#34322D; --accent:#F0643A; --accent-soft:#3A2219; --good:#86B58B; --good-soft:#1F2C21; --blue:#78A9D1;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--paper); color:var(--ink); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",system-ui,sans-serif; line-height:1.85; -webkit-font-smoothing:antialiased; }
+  .num { font-family:"Bahnschrift","Arial Narrow","Barlow Condensed",system-ui,sans-serif; font-variant-numeric:tabular-nums; letter-spacing:.01em; }
+  .col { max-width:640px; margin:0 auto; padding:0 20px; }
+  section { padding:72px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type { border-bottom:none; }
+  .kicker { font-size:12px; font-weight:700; letter-spacing:.16em; color:var(--muted); margin-bottom:14px; }
+  h1 { font-size:clamp(34px,8vw,56px); line-height:1.25; font-weight:900; letter-spacing:-.01em; }
+  h2 { font-size:clamp(24px,5.5vw,34px); line-height:1.35; font-weight:900; margin-bottom:20px; }
+  p { margin-bottom:1.1em; font-size:17px; }
+  .lead { font-size:19px; color:var(--muted); }
+  .small { font-size:13px; color:var(--muted); line-height:1.7; }
+  .accent { color:var(--accent); }
+  b.mark { background:linear-gradient(transparent 62%, var(--accent-soft) 62%); font-weight:700; }
+
+  /* reveal */
+  /* 読める状態で表示する。動きは棒グラフの伸びだけ */
+  @media (prefers-reduced-motion: reduce) { html{scroll-behavior:auto;} .fill{transition:none !important;} }
+
+  /* hero */
+  .hero { display:flex; flex-direction:column; justify-content:center; padding:56px 0 64px; border-bottom:1px solid var(--rule); }
+  .hero .big { display:flex; gap:20px; align-items:baseline; margin:34px 0 10px; flex-wrap:wrap; }
+  .hero .big .t { font-size:clamp(64px,18vw,112px); font-weight:700; line-height:.95; }
+  .hero .big .t.old { color:var(--faint); }
+  .hero .big .arrow { font-size:clamp(28px,7vw,44px); color:var(--faint); }
+  .hint { margin-top:40px; font-size:13px; color:var(--muted); letter-spacing:.1em; }
+  .hint::after { content:" ↓"; }
+
+  /* bars */
+  .bars { margin:28px 0 8px; }
+  .barrow { margin-bottom:22px; }
+  .barlab { display:flex; justify-content:space-between; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .barlab .v { font-size:26px; }
+  .track { height:22px; background:var(--rule); border-radius:3px; overflow:hidden; }
+  .fill { height:100%; width:var(--w); background:var(--ink); }
+  .fill.acc { background:var(--accent); }
+  .fill.faint { background:var(--faint); }
+
+  .pair { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:24px 0; }
+  .card { background:var(--card); border:1px solid var(--rule); border-radius:4px; padding:16px 16px 14px; }
+  .card .cap { font-size:12px; font-weight:700; letter-spacing:.1em; color:var(--muted); }
+  .card .val { font-size:44px; font-weight:700; line-height:1.05; margin-top:4px; }
+  .card .val small { font-size:.4em; color:var(--muted); margin-left:3px; }
+  .card.hl { border-color:var(--accent); }
+  .card.hl .val { color:var(--accent); }
+  .delta { font-size:13px; margin-top:6px; color:var(--muted); }
+
+  /* strike */
+  .claim { background:var(--card); border:1px solid var(--rule); border-left:4px solid var(--accent); padding:16px 18px; margin:22px 0; border-radius:3px; }
+  .claim .when { font-size:12px; font-weight:700; letter-spacing:.1em; color:var(--muted); margin-bottom:6px; }
+  .claim .txt { font-size:20px; font-weight:700; }
+  .claim.dead .txt { text-decoration:line-through; text-decoration-color:var(--accent); text-decoration-thickness:3px; color:var(--muted); }
+  .claim.live { border-left-color:var(--good); }
+
+  /* toy */
+  .toy { background:var(--card); border:1px solid var(--rule); border-radius:6px; padding:22px 18px 18px; margin:24px 0; }
+  .presets { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+  .presets button { font:inherit; font-size:14px; font-weight:700; padding:8px 14px; border-radius:99px; border:1px solid var(--ink); background:transparent; color:var(--ink); cursor:pointer; min-height:40px; }
+  .presets button[aria-pressed="true"] { background:var(--ink); color:var(--paper); }
+  .ctl { margin-bottom:18px; }
+  .ctl label { display:flex; justify-content:space-between; align-items:baseline; font-size:14px; font-weight:700; margin-bottom:4px; }
+  .ctl label .v { font-size:28px; }
+  input[type=range] { width:100%; accent-color:var(--accent); height:32px; }
+  .gauge { margin-top:8px; }
+  .gtrack { position:relative; height:26px; background:var(--rule); border-radius:3px; }
+  .gfill { position:absolute; left:0; top:0; bottom:0; background:var(--ink); border-radius:3px; transition:width .25s ease, background .25s; }
+  .gfill.ok { background:var(--good); }
+  .gmark { position:absolute; top:-6px; bottom:-6px; width:2px; background:var(--accent); }
+  .gmarklab { position:absolute; top:-24px; font-size:11px; color:var(--accent); font-weight:700; transform:translateX(-50%); white-space:nowrap; }
+  .gscale { display:flex; justify-content:space-between; font-size:11px; color:var(--faint); margin-top:4px; }
+  .readout { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:44px; }
+  .readout .card .val { font-size:40px; }
+  .note { font-size:13px; color:var(--muted); margin-top:14px; line-height:1.7; }
+
+  /* now */
+  .count { font-size:clamp(72px,20vw,128px); font-weight:700; line-height:1; color:var(--accent); }
+  .count small { font-size:.28em; color:var(--muted); margin-left:6px; font-weight:600; }
+
+  /* timeline */
+  .tl { position:relative; margin:30px 0 8px; padding-left:26px; }
+  .tl::before { content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:var(--rule); }
+  .ev { position:relative; margin-bottom:26px; }
+  .ev::before { content:""; position:absolute; left:-26px; top:7px; width:14px; height:14px; border-radius:50%; background:var(--paper); border:2px solid var(--ink); }
+  .ev.past::before { background:var(--ink); }
+  .ev.bad::before { background:var(--accent); border-color:var(--accent); }
+  .ev.goal::before { border-color:var(--accent); background:var(--accent-soft); width:18px; height:18px; left:-28px; }
+  .ev .d { font-size:13px; font-weight:700; color:var(--muted); letter-spacing:.05em; }
+  .ev .h { font-size:18px; font-weight:700; line-height:1.5; }
+  .ev .b { font-size:14px; color:var(--muted); line-height:1.7; margin-top:2px; }
+  .tag { display:inline-block; font-size:11px; font-weight:700; padding:1px 8px; border-radius:99px; margin-left:6px; vertical-align:2px; }
+  .tag.done { background:var(--good-soft); color:var(--good); }
+  .tag.plan { background:var(--accent-soft); color:var(--accent); }
+
+  .take { background:var(--card); border:1px solid var(--rule); border-radius:6px; padding:22px 20px; margin:26px 0; }
+  .take ol { padding-left:1.3em; }
+  .take li { margin-bottom:.7em; font-size:17px; }
+
+  footer { padding:36px 0 80px; }
+  footer p { font-size:12.5px; color:var(--muted); line-height:1.8; margin-bottom:.7em; }
+  .prog { position:fixed; left:0; top:0; height:3px; background:var(--accent); width:0; z-index:9; }
+</style>
+</head>
+<body>
+<div class="prog" id="prog"></div>
+
+<!-- 0. hero -->
+<header class="col hero">
+  <div class="kicker rv">ROAD N=1 ／ 富士ヒルクライム</div>
+  <h1 class="rv">8分遅れた理由を、<br>最初は<span class="accent">まちがえた</span>。</h1>
+  <div class="big rv num" aria-label="2025年 1時間25分、2026年 1時間33分">
+    <span class="t old">1:25</span><span class="arrow">→</span><span class="t">1:33</span>
+  </div>
+  <p class="lead rv">同じ山、同じ人。タイムは8分延びた。エンジンが落ちたのか、それとも別の何かか。自分の記録を並べて確かめた。</p>
+</header>
+
+<!-- 1. two numbers -->
+<section>
+  <div class="col">
+    <div class="kicker rv">1 ／ 並べてみる</div>
+    <h2 class="rv">パワーは、ほぼ同じだった。</h2>
+    <p class="rv">2025年と2026年のレース中の平均パワーを並べる。</p>
+    <div class="bars rv" id="bars1">
+      <div class="barrow">
+        <div class="barlab"><span>2025年（1:25）</span><span class="v num">211 W</span></div>
+        <div class="track"><div class="fill faint" style="--w:100%"></div></div>
+      </div>
+      <div class="barrow">
+        <div class="barlab"><span>2026年（1:33）</span><span class="v num">209 W</span></div>
+        <div class="track"><div class="fill" style="--w:99%"></div></div>
+      </div>
+    </div>
+    <p class="rv"><b class="mark">2Wの差</b>。8分の差を生む大きさではない。</p>
+    <p class="small rv">出典：本人の記録。レース平均パワー。</p>
+  </div>
+</section>
+
+<!-- 2. weight -->
+<section>
+  <div class="col">
+    <div class="kicker rv">2 ／ もう一つの数字</div>
+    <h2 class="rv">変わったのは、体重だった。</h2>
+    <div class="pair rv">
+      <div class="card"><div class="cap">2025</div><div class="val num">65.0<small>kg</small></div></div>
+      <div class="card hl"><div class="cap">2026</div><div class="val num">71.5<small>kg</small></div><div class="delta num">+6.5 kg</div></div>
+    </div>
+    <p class="rv">山を登るとき、パワーを体重で割った値が速さを決める。エンジンが同じでも、背負う荷物が6.5kg増えれば遅くなる。</p>
+    <div class="pair rv">
+      <div class="card"><div class="cap">W／kg 2025</div><div class="val num">3.25</div></div>
+      <div class="card hl"><div class="cap">W／kg 2026</div><div class="val num">2.92</div></div>
+    </div>
+    <p class="rv small">物理モデルで計算すると、体重差だけで実測の遅れの約88%を説明できた（モデル差7.1分／実測差8.0分）。モデルは富士ヒルの実測で較正したもの。</p>
+  </div>
+</section>
+
+<!-- 3. misdiagnosis -->
+<section>
+  <div class="col">
+    <div class="kicker rv">3 ／ 一度、まちがえた</div>
+    <h2 class="rv">「体力のせいだ」と書いた。<br>同じ日に、書き直した。</h2>
+    <p class="rv">レースの約5週間後、Intervals.icuの直近半年分のデータを分析して、原因を書いた。</p>
+    <div class="claim dead rv">
+      <div class="when">2026年7月15日</div>
+      <div class="txt">敗因は体力そのもの（CTL 37.9）</div>
+    </div>
+    <p class="rv">ペーシングは問題なし。テーパー（直前の調整）も正しかった。だから残るのは体力だろう、という消去法だった。</p>
+    <p class="rv">でも、このデータには<b class="mark">2025年が入っていなかった</b>。Intervals.icuの記録は2026年1月以降しかない。手元の記録にあった2025年と並べると、ほぼ同じパワーが出ていた。</p>
+    <div class="claim live rv">
+      <div class="when">2026年7月15日 同日中</div>
+      <div class="txt">敗因は体重 +6.5kg</div>
+    </div>
+    <p class="rv"><b class="mark">見えている範囲のデータだけで原因を決めると、もっともらしい間違いができる。</b>この日の訂正は、元の文章を消さずに残してある。</p>
+    <p class="rv">ただ、「体力は関係なかった」わけではない。次の章で、CTLの低さと向き合った記録を置く。</p>
+  </div>
+</section>
+
+<!-- 3b. CTL -->
+<section>
+  <div class="col">
+    <div class="kicker rv">4 ／ 反省して、積んだ</div>
+    <h2 class="rv">CTLが低かった。だから、実際に走って積んだ。</h2>
+    <p class="rv">CTLは、ここ6週間ほどの練習量を一つにまとめた「体力の貯金」の目安。富士ヒルの本人の反省は、こうだった。</p>
+    <div class="claim rv">
+      <div class="when">2026年9月13日 本人の記録</div>
+      <div class="txt">ポイント練習だけで効率よく疲労をためない戦略でしたが、ベース不足でした。</div>
+    </div>
+    <p class="rv">そこから、六甲山、勝尾寺、葛城山、ビーナスライン、八ヶ岳、高野山、護摩山、金剛山、ぶどう坂、十三峠と、実際の坂を走る量を増やした。</p>
+    <div class="bars rv" id="bars2">
+      <div class="barrow">
+        <div class="barlab"><span>2026年2月</span><span class="v num">47</span></div>
+        <div class="track"><div class="fill faint" style="--w:58.8%"></div></div>
+      </div>
+      <div class="barrow">
+        <div class="barlab"><span>2026年5月（最低）</span><span class="v num">38</span></div>
+        <div class="track"><div class="fill acc" style="--w:47.5%"></div></div>
+      </div>
+      <div class="barrow">
+        <div class="barlab"><span>富士ヒル 当日</span><span class="v num">42</span></div>
+        <div class="track"><div class="fill acc" style="--w:52.5%"></div></div>
+      </div>
+      <div class="barrow">
+        <div class="barlab"><span>大台ヶ原の前（積んだ最高）</span><span class="v num">80</span></div>
+        <div class="track"><div class="fill" style="--w:100%"></div></div>
+      </div>
+      <div class="barrow">
+        <div class="barlab"><span>大台ヶ原 当日（2週間の調整後）</span><span class="v num">59</span></div>
+        <div class="track"><div class="fill" style="--w:73.8%"></div></div>
+      </div>
+      <div class="barrow">
+        <div class="barlab"><span>いま（2026-11-06）</span><span class="v num">64</span></div>
+        <div class="track"><div class="fill" style="--w:80%"></div></div>
+      </div>
+    </div>
+    <p class="small rv">2026年2月〜富士ヒル当日と「いま」はIntervals.icuの記録。大台ヶ原の前の80と当日の59は本人の記録。</p>
+
+    <h3 class="rv" style="font-size:20px;font-weight:900;margin:34px 0 12px">大台ヶ原ヒルクライム：1:39:43</h3>
+    <p class="rv">目標の「1時間40分切り」は、ぎりぎり達成した。公式タイムは1時間39分43秒。</p>
+    <div class="pair rv">
+      <div class="card"><div class="cap">富士ヒル2026（1:33）</div><div class="val num">211<small>W</small></div><div class="delta num">体重71.5kg → 2.95 W/kg</div></div>
+      <div class="card hl"><div class="cap">大台ヶ原2026（1:39:43）</div><div class="val num">232.6<small>W</small></div><div class="delta num">体重69kg → 3.37 W/kg</div></div>
+    </div>
+    <p class="rv">どちらも1時間半〜40分ほどの登りで、NP（変動を補正した平均パワー）は約22W上がり、体重は2.5kg軽くなった。W／kgにすると2.95から3.37。<b class="mark">少し、改善した。</b></p>
+    <p class="small rv">注意：コースも日も別のレースで、数字は各レースのNPを当日の体重で割ったもの。ペースの揺れ（VI）は1.03で、一定に踏めていた。</p>
+    <p class="rv">でも、本人の総括はここで終わらない。<b class="mark">「大台ヶ原はCTL59の走りだった」</b>。80まで積んでも、2週間の調整で59まで落ちた。富士ヒルが「CTL40の走り」だったように。圧倒的に練習量が足りない、というのが再確認したことだった。</p>
+    <p class="small rv">出典：2026-09-13の日誌（本人の言葉）と、大台ヶ原のレース記録。富士ヒルのNPは登坂区間の計算値。</p>
+  </div>
+</section>
+
+<!-- 4. toy -->
+<section>
+  <div class="col">
+    <div class="kicker rv">5 ／ 触ってみる</div>
+    <h2 class="rv">体重とパワーを動かす。</h2>
+    <p class="rv">スライダーを動かすか、下のボタンを押すと、W／kgが変わる。</p>
+    <div class="toy rv" id="toy">
+      <div class="presets" role="group" aria-label="プリセット">
+        <button type="button" data-w="65" data-p="211" aria-pressed="false">2025</button>
+        <button type="button" data-w="71.5" data-p="209" aria-pressed="false">2026</button>
+        <button type="button" data-w="69" data-p="232.6" aria-pressed="false">大台ヶ原</button>
+        <button type="button" data-w="68" data-p="245" aria-pressed="true">いま</button>
+        <button type="button" data-w="65" data-p="260" aria-pressed="false">目標</button>
+      </div>
+      <div class="ctl">
+        <label for="wt"><span>体重</span><span class="v num"><span id="wtv">68.0</span> kg</span></label>
+        <input type="range" id="wt" min="60" max="75" step="0.1" value="68">
+      </div>
+      <div class="ctl">
+        <label for="pw"><span>パワー</span><span class="v num"><span id="pwv">245</span> W</span></label>
+        <input type="range" id="pw" min="190" max="280" step="0.1" value="245">
+      </div>
+      <div class="gauge">
+        <div class="gtrack">
+          <div class="gfill" id="gfill" style="width:0"></div>
+          <div class="gmark" id="gmark"></div>
+          <div class="gmarklab" id="gmarklab">4.0</div>
+        </div>
+        <div class="gscale num"><span>2.5</span><span>3.0</span><span>3.5</span><span>4.0</span><span>4.5</span></div>
+      </div>
+      <div class="readout">
+        <div class="card"><div class="cap">W／kg</div><div class="val num" id="pwr">3.60</div></div>
+        <div class="card hl"><div class="cap">4.0に必要なパワー</div><div class="val num"><span id="need">272</span><small>W</small></div></div>
+      </div>
+      <p class="note">「2025」「2026」はレース当日の平均パワー、「大台ヶ原」はレースのNP、「いま」「目標」はFTP（1時間ほど出せる力）の値。測り方が違うので、数字の大小だけで比べすぎないこと。4.0は富士ヒル・シルバー（75分切り）の目安として置いている。</p>
+    </div>
+    <p class="rv">「体重を1kg減らす」は、パワー約4Wを足すのと同じ重さになる（W／kg 4.0付近）。どちらも極端に削らず、ちょうどいい所を探す。</p>
+  </div>
+</section>
+
+<!-- 5. now -->
+<section>
+  <div class="col">
+    <div class="kicker rv">6 ／ いま</div>
+    <h2 class="rv">次の本番まで。</h2>
+    <div class="count num rv" id="days">212<small>日</small></div>
+    <p class="small rv" id="daysnote">2027年6月6日（暫定。公式発表で直す）</p>
+    <div class="pair rv" style="margin-top:28px">
+      <div class="card"><div class="cap">体重</div><div class="val num">68.0<small>kg</small></div><div class="delta">大台ヶ原 69kg／富士ヒル71.5kg</div></div>
+      <div class="card"><div class="cap">FTP</div><div class="val num">245<small>W</small></div><div class="delta">Intervals推定 238W</div></div>
+      <div class="card"><div class="cap">W／kg</div><div class="val num">3.60</div><div class="delta">目標 4.00</div></div>
+      <div class="card"><div class="cap">CTL（体力の貯金）</div><div class="val num">64.0</div><div class="delta">本番に向け約90へ</div></div>
+    </div>
+    <p class="small rv">2026-11-06時点。体重・CTL・推定FTPはIntervals.icu、FTP 245Wは自分で設定した値。2026年の設定値（214W）は過小だったと後で分かったので、245Wとの差を「伸び」とは呼ばない。</p>
+  </div>
+</section>
+
+<!-- 5b. plan -->
+<section>
+  <div class="col">
+    <div class="kicker">次の富士ヒルへ</div>
+    <h2>来年に向けた5つの方針。</h2>
+    <p>2026年の負けは、春にCTLが落ちたことと、前半に踏みすぎたこと。そこから、来年の6月に向けて次のことを続ける。</p>
+
+    <div class="take" style="margin-top:0">
+      <ol>
+        <li><b>水曜は4分×4本のVO2を、毎週やる。</b>270Wを4本。同じ270Wで各本の平均心拍が1〜3拍下がってきている。ただし9/29〜10/28の5週間で、実施できたのは2回だけだった。</li>
+        <li><b>週のTSSは、目標のCTLから逆算する。</b>CTLは週TSS÷7に近づく。週約490でCTL70前後。本番当日はCTL 90を目指して、第2期から上げる（第2期以降の数字は仮置き）。</li>
+        <li><b>冬は「落とさない期間」にする。</b>2026年はCTLが2月の47から5月の38まで下がった。12月〜2月も、週の型を崩さない。</li>
+        <li><b>本番は、最初の5kmに上限をつける。</b>下の図のとおり、2026年は最初の5kmが一番強かった。</li>
+        <li><b>カーボローディングは、体重+1kgまで。</b>2026年は当日に+2kgで、食べすぎだった。</li>
+      </ol>
+    </div>
+
+    <h3 style="font-size:20px;font-weight:900;margin:34px 0 8px">2026年の富士ヒル：5kmごとの平均パワー</h3>
+    <p class="small">全体の平均は209W。区間ごとに見ると、後半に向けて下がっていた。</p>
+    <div class="bars" id="bars3">
+      <div class="barrow"><div class="barlab"><span>最初の5km</span><span class="v num">231 W</span></div><div class="track"><div class="fill acc" style="--w:100%"></div></div></div>
+      <div class="barrow"><div class="barlab"><span>〜10km</span><span class="v num">208 W</span></div><div class="track"><div class="fill" style="--w:90%"></div></div></div>
+      <div class="barrow"><div class="barlab"><span>〜15km</span><span class="v num">207 W</span></div><div class="track"><div class="fill" style="--w:89.6%"></div></div></div>
+      <div class="barrow"><div class="barlab"><span>〜20km</span><span class="v num">198 W</span></div><div class="track"><div class="fill" style="--w:85.7%"></div></div></div>
+      <div class="barrow"><div class="barlab"><span>最後の5km</span><span class="v num">196 W</span></div><div class="track"><div class="fill" style="--w:84.8%"></div></div></div>
+    </div>
+    <p class="small">Stravaの記録。区間の区切りは5km刻み。ペースの揺れを見るVI（1.024）は一定に見えても、5km刻みで見ると前半が強く後半が下がっていた。</p>
+    <p class="small">この方針は予定で、結果ではない。2/28時点でCTLが70を下回らないか、11/23までに水曜4本目の平均心拍が下がっているかで、あとから確かめる。</p>
+  </div>
+</section>
+
+<!-- 6. timeline -->
+<section>
+  <div class="col">
+    <div class="kicker rv">8 ／ 道のり</div>
+    <h2 class="rv">2027年6月まで。</h2>
+    <div class="tl">
+      <div class="ev past bad rv"><div class="d num">2026.06.07</div><div class="h">富士ヒル 1:33<span class="tag done">済</span></div><div class="b">平均209W、体重71.5kg。</div></div>
+      <div class="ev past rv"><div class="d num">2026.07.15</div><div class="h">原因を書き直す<span class="tag done">済</span></div><div class="b">「体力のせい」を書き直し。体重が主因と記録。</div></div>
+      <div class="ev past rv"><div class="d num">2026.09.13</div><div class="h">大台ヶ原 1:39:43<span class="tag done">済</span></div><div class="b">実走でCTL80まで積み、調整で59に。目標の1:40切りは達成。練習量は足りないと再確認。</div></div>
+      <div class="ev past rv"><div class="d num">2026.09.14</div><div class="h">富士ヒル2027の準備に切り替え<span class="tag done">済</span></div><div class="b">第1期：週に約510TSSの骨格（平日朝Z2＋夕方の強め＋土日の実走）。</div></div>
+      <div class="ev rv"><div class="d num">2026.11.14</div><div class="h">金剛山TT 40分 250W<span class="tag plan">予定</span></div><div class="b">山の実測で現在地を確かめる。</div></div>
+      <div class="ev rv"><div class="d num">2026.12.01</div><div class="h">第2期（ピラミッド型）へ<span class="tag plan">予定</span></div><div class="b">週510〜650TSS。内訳を少し強い側へ。</div></div>
+      <div class="ev rv"><div class="d num">2027.03.01</div><div class="h">第3期（本番に近づける）<span class="tag plan">予定</span></div><div class="b">実際の坂を走る練習を増やす。登坂TTは4月11日までに1回。</div></div>
+      <div class="ev rv"><div class="d num">2027.05.23</div><div class="h">調整期間に入る<span class="tag plan">予定</span></div><div class="b">量を足して体力を戻そうとしない。</div></div>
+      <div class="ev goal rv"><div class="d num">2027.06.06</div><div class="h">富士ヒル：75分切り（シルバー）</div><div class="b">目安は W／kg 4.0。体重65kg台なら約260W。</div></div>
+    </div>
+    <p class="small rv">予定はいまの計画で、変わる可能性がある。結果は本番まで書かない。</p>
+  </div>
+</section>
+
+<!-- 7. take -->
+<section>
+  <div class="col">
+    <div class="kicker rv">9 ／ 持ち帰る</div>
+    <h2 class="rv">あなたのログでも、同じことができる。</h2>
+    <div class="take rv">
+      <ol>
+        <li><b>タイムが変わったとき、「何が変わって、何が変わらなかったか」を横に並べる。</b>今回は、パワーは同じで体重だけが動いていた。</li>
+        <li><b>手元のデータに「去年」が入っているか確認する。</b>アプリの記録は、始めた日より前を知らない。</li>
+        <li><b>原因を書いたら、反対の証拠を探す。</b>今回は消去法で「体力」と書いて、同じ日に取り消すことになった。</li>
+      </ol>
+    </div>
+    <p class="rv">体重は後から減らせる。でも、原因を取り違えたまま1年走ると、練習の方向がずれる。</p>
+  </div>
+</section>
+
+<footer class="col">
+  <p><b>データの出典</b>：2025・2026年のタイムと平均パワー・体重は本人の記録。物理モデルの検証と訂正の経緯は、自分の分析ノート（2026-07-15）。現在値はIntervals.icu（2026-11-06取得）と自分の設定値。</p>
+  <p>数字はこの記録の範囲で言えること。他の人に当てはまるとは限らない。計画と結果を混ぜないよう、予定には「予定」と付けた。</p>
+</footer>
+
+<script>
+(function(){
+  // reveal
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.15});
+    els.forEach(function(el){io.observe(el);});
+  } else { els.forEach(function(el){el.classList.add('in');}); }
+
+  // progress bar
+  var prog=document.getElementById('prog');
+  function onScroll(){
+    var h=document.documentElement; var max=h.scrollHeight-h.clientHeight;
+    prog.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // toy
+  var wt=document.getElementById('wt'), pw=document.getElementById('pw');
+  var wtv=document.getElementById('wtv'), pwv=document.getElementById('pwv');
+  var pwr=document.getElementById('pwr'), need=document.getElementById('need');
+  var gfill=document.getElementById('gfill'), gmark=document.getElementById('gmark'), gmarklab=document.getElementById('gmarklab');
+  var MIN=2.5, MAX=4.5, TARGET=4.0;
+  function pct(v){ return Math.max(0,Math.min(100,(v-MIN)/(MAX-MIN)*100)); }
+  gmark.style.left=pct(TARGET)+'%'; gmarklab.style.left=pct(TARGET)+'%';
+  function update(){
+    var w=parseFloat(wt.value), p=parseFloat(pw.value);
+    var r=p/w;
+    wtv.textContent=w.toFixed(1); pwv.textContent=(p%1===0?p:p.toFixed(1));
+    pwr.textContent=r.toFixed(2);
+    need.textContent=Math.ceil(TARGET*w);
+    gfill.style.width=pct(r)+'%';
+    gfill.classList.toggle('ok', r>=TARGET);
+  }
+  wt.addEventListener('input',function(){ clearPress(); update(); });
+  pw.addEventListener('input',function(){ clearPress(); update(); });
+  var btns=[].slice.call(document.querySelectorAll('.presets button'));
+  function clearPress(){ btns.forEach(function(b){b.setAttribute('aria-pressed','false');}); }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      clearPress(); b.setAttribute('aria-pressed','true');
+      wt.value=b.getAttribute('data-w'); pw.value=b.getAttribute('data-p'); update();
+    });
+  });
+  update();
+
+  // countdown (race date provisional)
+  try{
+    var race=new Date(2027,5,6), now=new Date();
+    var d=Math.ceil((race-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/86400000);
+    if(d>=0 && d<400){
+      document.getElementById('days').innerHTML=d+'<small>日</small>';
+      document.getElementById('daysnote').textContent='2027年6月6日（暫定。公式発表で直す）。今日の日付から数えている。';
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
